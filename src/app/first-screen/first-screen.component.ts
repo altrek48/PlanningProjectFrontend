@@ -44,7 +44,7 @@ export class FirstScreenComponent implements OnInit {
   createNewGroup() {
     const dialogAddGroup = this.dialog.open(DialogAddGroupComponent, {
       width: '400px',
-      data: null
+      data: null,
     });
     dialogAddGroup.afterClosed().subscribe((result: Group) => {
       if (result.name.length > 5) {

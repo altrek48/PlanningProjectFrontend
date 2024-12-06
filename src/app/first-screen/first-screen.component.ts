@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DialogAddGroupComponent } from './dialog-add-group/dialog-add-group/dialog-add-group.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { GroupService } from 'src/services/group-service';
 
 @Component({
   selector: 'app-first-screen',
@@ -22,7 +23,7 @@ export class FirstScreenComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private baseService: BaseService,
-    private router: Router
+    private groupService: GroupService
   ) { }
 
   ngOnInit(): void {
@@ -30,17 +31,13 @@ export class FirstScreenComponent implements OnInit {
   }
 
   loadGroups() {
-    this.baseService.getAllGroups().subscribe(data => {
-      console.log("data:", data);
+    this.groupService.loadGroups().subscribe(data => {
       this.groups = data;
-  });
+    });
   }
 
   selectGroup(group: Group) {
-    console.log("selected group:", group);
-    this.router.navigate([`/plains/${group.id}`], {
-      state: { groups: this.groups}
-    });
+    this.groupService.selectGroup(group);
   }
 
   createNewGroup() {

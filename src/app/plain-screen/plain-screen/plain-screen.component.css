@@ -38,12 +38,12 @@ body {
   padding-right: 10px;
 }
 
-.sidebar .add-group {
+.sidebar .home-group {
   padding: 20px;
   text-align: center;
 }
 
-.add-group button {
+.home-group button {
   width: 40px;
   height: 40px;
   font-size: 24px;
@@ -85,4 +85,11 @@ body {
 
 .group-item:hover {
   background-color: #e0e0e0;
+}
+
+.home-group button img {
+  width: 24px;
+  height: 24x;
+  object-fit: contain;
+  vertical-align: middle;
 }

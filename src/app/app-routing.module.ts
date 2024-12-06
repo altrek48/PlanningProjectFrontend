@@ -4,9 +4,9 @@ import { FirstScreenComponent } from './first-screen/first-screen.component';
 import { PlainScreenComponent } from './plain-screen/plain-screen/plain-screen.component';
 
 const routes: Routes = [
-  {path: 'groups', component: FirstScreenComponent},
-  {path: 'plains', component: PlainScreenComponent},
-  {path: '', redirectTo: '/groups', pathMatch: 'full'},
+  { path: 'home', component: FirstScreenComponent},
+  { path: 'plains/:groupId', component: PlainScreenComponent},
+  {path: '**', redirectTo: '/home', pathMatch: 'full'},
 ];
 
 @NgModule({

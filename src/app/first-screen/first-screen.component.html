@@ -9,6 +9,7 @@
   <div class="sidebar">
     <div class="menu">
       <div *ngFor="let group of groups" class="group-item" (click)="selectGroup(group)">
+        <router-outlet></router-outlet>
         {{ group.name }}
       </div>
     </div>

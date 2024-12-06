@@ -1,2 +1,2 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css"; /*корень проболем(без него ничего не работало)*/
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"; /*корень проболем(без него диалогговые окна работали не так, как надо)*/
 

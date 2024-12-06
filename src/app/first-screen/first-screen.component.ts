@@ -38,7 +38,9 @@ export class FirstScreenComponent implements OnInit {
 
   selectGroup(group: Group) {
     console.log("selected group:", group);
-    this.router.navigate(['/plains']);
+    this.router.navigate([`/plains/${group.id}`], {
+      state: { groups: this.groups}
+    });
   }
 
   createNewGroup() {

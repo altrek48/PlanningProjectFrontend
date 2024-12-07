@@ -37,6 +37,7 @@ export class FirstScreenComponent implements OnInit {
   }
 
   selectGroup(group: Group) {
+    // debugger;
     this.groupService.selectGroup(group);
   }
 

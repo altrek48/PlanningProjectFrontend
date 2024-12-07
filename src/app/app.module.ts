@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { FirstScreenComponent } from './first-screen/first-screen.component';
 import { PlainScreenComponent } from './plain-screen/plain-screen/plain-screen.component';
 import { DialogAddGroupComponent } from './first-screen/dialog-add-group/dialog-add-group/dialog-add-group.component';
+import { DefaultContentComponent } from './first-screen/default-content/default-content.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DialogAddGroupComponent } from './first-screen/dialog-add-group/dialog-
     FirstScreenComponent,
     PlainScreenComponent,
     DialogAddGroupComponent,
+    DefaultContentComponent,
   ],
   imports: [
     BrowserModule,

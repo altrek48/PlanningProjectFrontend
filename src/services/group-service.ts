@@ -26,9 +26,11 @@ export class GroupService {
   }
 
   selectGroup(group: Group){
+    // debugger;
     console.log("selected group:", group);
-    this.router.navigate([`/plains/${group.id}`], {
-      state: { groups: this.groups}
+    // debugger;
+    this.router.navigate([`home/plains/${group.id}`], {
+      state: {groups: this.groups}
     });
   }
 

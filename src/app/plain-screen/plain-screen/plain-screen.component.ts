@@ -2,7 +2,7 @@ import { BaseService } from './../../../services/base-service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Group } from 'src/models/group';
-import { Router } from '@angular/router';
+import { Router, Params } from '@angular/router';
 import { GroupService } from 'src/services/group-service';
 
 @Component({
@@ -31,11 +31,24 @@ export class PlainScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.groups.length === 0) {
-      console.log("groups are null");
+    this.initialize();
+
+    //при изменении параметра маршрута:
+    //              !!при переходе из родительского компонента метод initialize вызывается дважды(нужно пофиксить)
+    this.activateRoute.params.subscribe((params: Params) => {
+      this.groupId = +params['groupId'];
+      this.initialize();
+    });
+  }
+
+  initialize() {
+    console.log("selected groupId:", this.groupId);
+    if (history.state.groups) {
+      this.groups = history.state.groups;
+    }
+    else {
       this.loadGroups();
     }
-
     this.loadTasks();
   }
 

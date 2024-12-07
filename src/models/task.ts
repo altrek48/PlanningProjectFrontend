@@ -13,7 +13,7 @@ export class Task {
   name: string;
   comment: string | null;
   amount: number | null;
-  products: Array<ProductInPlane> | null;
+  products: ProductInPlane[] | null;
   //доделать для purchasesIds
 
 

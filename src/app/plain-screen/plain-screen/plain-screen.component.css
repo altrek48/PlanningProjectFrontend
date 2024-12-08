@@ -1,49 +1,39 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
-body {
-  font-family: Arial, sans-serif;
+.buttons {
   display: flex;
-  height: 100%;
-  overflow: hidden;
-  margin: 0;
-}
-
-.sidebar {
-  width: 20%;
-  background-color: #f5f5f5;
-  border-right: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
+  bottom: 0;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 1300px;
+  border-top: 1px solid #000;
 }
 
-.sidebar .menu {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding-right: 10px;
-}
-
-.sidebar .home-group {
+.button {
+  flex: 1;
   padding: 20px;
   text-align: center;
+  background-color: #f0f0f0;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.home-group button {
+.btn:hover {
+  background-color: #ddd;
+}
+
+.plans {
+  border-right: 1px solid #000;
+}
+
+.add-plan {
+  position: fixed;
+  bottom: 60px;
+  left: 60%;
+  transform: translateX(-50%);
+}
+
+.add-button {
   width: 40px;
   height: 40px;
   font-size: 24px;
@@ -52,44 +42,4 @@ body {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-}
-
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin-left: 20%;
-  overflow: hidden;
-}
-
-.group-list {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  flex-grow: 1;
-  overflow-y: auto;
-}
-
-.group-item {
-  padding: 8px;
-  margin: 4px 0;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.group-item:hover {
-  background-color: #e0e0e0;
-}
-
-.home-group button img {
-  width: 24px;
-  height: 24x;
-  object-fit: contain;
-  vertical-align: middle;
 }

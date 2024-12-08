@@ -6,10 +6,12 @@ import { DefaultContentComponent } from './first-screen/default-content/default-
 
 
 const routes: Routes = [
-  { path: 'home', component: FirstScreenComponent, children: [
+  { path: 'home', component: FirstScreenComponent,
+    children: [
       {path: 'plains/:groupId', component: PlainScreenComponent},
       {path: '', component: DefaultContentComponent}
-  ]},
+    ]
+  },
   { path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 

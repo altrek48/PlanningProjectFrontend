@@ -31,7 +31,7 @@ export class PlainScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.initialize();
+    // this.initialize();
 
     //при изменении параметра маршрута:
     //              !!при переходе из родительского компонента метод initialize вызывается дважды(нужно пофиксить)

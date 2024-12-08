@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Планы по группе</title>
-</head>
-<body>
-  <div class="sidebar">
-    <div class="menu">
-      <div *ngFor="let group of groups" class="group-item" (click)="selectGroup(group)">
-        {{ group.name }}
-      </div>
-    </div>
-    <div class="home-group">
-      <button mat-raised-button color="primary"
-      (click)="backToHome()"
-      ><img src="/assets/images/home-icon.png" /></button>
-    </div>
-  </div>
-  <div class="main-content">
     <div class="top-right">
       <h1>{{groupId}}</h1>
     </div>
-  </div>
-</body>
-</html>
+

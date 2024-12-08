@@ -5,7 +5,7 @@ import { Group } from 'src/models/group';
 import { MatTableDataSource } from '@angular/material/table';
 import { DialogAddGroupComponent } from './dialog-add-group/dialog-add-group/dialog-add-group.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { GroupService } from 'src/services/group-service';
 
 @Component({
@@ -19,15 +19,28 @@ import { GroupService } from 'src/services/group-service';
 export class FirstScreenComponent implements OnInit {
 
   groups: Group[] = [];
+  //Нужно для того, чтобы менять кнопку (добавления группы / возвращения на 1 скрин) в зависимости от компоненты
+  isNotFirstScreen = false;
 
   constructor(
     public dialog: MatDialog,
     private baseService: BaseService,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.loadGroups();
+    //если url ==== 'plains' isNotFirstScreen = true
+    this.activatedRoute.firstChild?.url.subscribe((url) => {
+      this.isNotFirstScreen = url[0]?.path === 'plains';
+    });
+    //при событии изменения маршрута смотрится компонент и isNotFirstScreen меняется/не меняется
+    this.router.events.subscribe(() => {
+      const currentChild = this.activatedRoute.firstChild?.snapshot.url[0]?.path;
+      this.isNotFirstScreen = currentChild === 'plains';
+    });
   }
 
   loadGroups() {
@@ -56,6 +69,11 @@ export class FirstScreenComponent implements OnInit {
         console.log("Недостаточно символов в названии группы");
       }
     });
+  }
+
+  backToHome() {
+    console.log("route to first screen");
+    this.router.navigate(["/home"]);
   }
 
 }

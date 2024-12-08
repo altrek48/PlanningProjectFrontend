@@ -13,9 +13,19 @@
       </div>
     </div>
     <div class="add-group">
-      <button mat-raised-button color="primary"
-      (click)="createNewGroup()"
-      >+</button>
+      <button
+        *ngIf="!isNotFirstScreen"
+        mat-raised-button color="primary"
+        (click)="createNewGroup()"
+        >+
+      </button>
+      <button
+        *ngIf="isNotFirstScreen"
+        mat-raised-button color="primary"
+        (click)="backToHome()"
+        [ngClass]="{'home-group': isNotFirstScreen}"
+        ><img src="/assets/images/home-icon.png"/>
+      </button>
     </div>
   </div>
   <div class="main-content">

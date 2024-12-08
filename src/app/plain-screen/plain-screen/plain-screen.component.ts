@@ -31,40 +31,10 @@ export class PlainScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.initialize();
-
-    //при изменении параметра маршрута:
-    //              !!при переходе из родительского компонента метод initialize вызывается дважды(нужно пофиксить)
     this.activateRoute.params.subscribe((params: Params) => {
       this.groupId = +params['groupId'];
-      this.initialize();
+      this.loadTasks();
     });
-  }
-
-  initialize() {
-    console.log("selected groupId:", this.groupId);
-    if (history.state.groups) {
-      this.groups = history.state.groups;
-    }
-    else {
-      this.loadGroups();
-    }
-    this.loadTasks();
-  }
-
-  loadGroups() {
-    this.groupService.loadGroups().subscribe(data => {
-      this.groups = data;
-    });
-  }
-
-  selectGroup(group: Group) {
-    this.groupService.selectGroup(group);
-  }
-
-  backToHome() {
-    console.log("route to first screen");
-    this.router.navigate(["/home"]);
   }
 
   loadTasks() {

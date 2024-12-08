@@ -86,3 +86,10 @@ body {
 .group-item:hover {
   background-color: #e0e0e0;
 }
+
+.add-group button.home-group img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+}

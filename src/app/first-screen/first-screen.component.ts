@@ -32,14 +32,10 @@ export class FirstScreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadGroups();
-    //если url ==== 'plains' isNotFirstScreen = true
-    this.activatedRoute.firstChild?.url.subscribe((url) => {
-      this.isNotFirstScreen = url[0]?.path === 'plains';
-    });
-    //при событии изменения маршрута смотрится компонент и isNotFirstScreen меняется/не меняется
+    this.isNotFirstScreen = this.router.url !== '/home'
+
     this.router.events.subscribe(() => {
-      const currentChild = this.activatedRoute.firstChild?.snapshot.url[0]?.path;
-      this.isNotFirstScreen = currentChild === 'plains';
+      this.isNotFirstScreen = this.router.url !== '/home';
     });
   }
 

@@ -7,6 +7,7 @@
 </head>
 <body>
   <div class="sidebar">
+    <h1>Группы</h1>
     <div class="menu">
       <div *ngFor="let group of groups" class="group-item" (click)="selectGroup(group)">
         {{ group.name }}

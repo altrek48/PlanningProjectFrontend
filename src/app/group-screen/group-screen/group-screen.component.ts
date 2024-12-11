@@ -15,41 +15,54 @@ export class GroupScreenComponent implements OnInit {
 
   groupId: number;
   groups: Group[] = [];
-  tasks: Task[] = [];
+  currentGroupName: string = '';
 
   constructor(
     private activateRoute: ActivatedRoute,
     private router: Router,
-    private groupService: GroupService,
-    private baseService: BaseService
+    private groupService: GroupService
   ) {
     this.groupId = activateRoute.snapshot.params["groupId"];
-    if(history.state.groups) {
-      this.groups = history.state.groups;
-      console.log("all groups:", this.groups);
-    }
   }
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe((params: Params) => {
       this.groupId = +params['groupId'];
-      this.loadTasks();
+      this.setGroupName();
+    });
+    if(history.state.groups) {
+      this.groups = history.state.groups;
+      console.log("all groups:", this.groups);
+      console.log("History state groups:", history.state.groups);
+      this.setGroupName();
+    }
+    else {
+      this.loadGroups();
+    }
+  }
+
+  loadGroups() {
+    this.groupService.loadGroups().subscribe({
+      next: (data) => {
+        this.groups = data;
+        this.setGroupName();
+      }
     });
   }
 
-  loadTasks() {
-    this.baseService.getAllTasksByGroupId(this.groupId).subscribe(data => {
-      this.tasks = data;
-      console.log("tasks: ", this.tasks);
-    })
+  setGroupName() {
+    const currentGroup = this.groups.find(group => group.id === this.groupId);
+    if(currentGroup) {
+      this.currentGroupName = currentGroup.name;
+    }
   }
 
   routeToPlans(groupId: number) {
-    this.router.navigate([`home/plains/${groupId}`]);
+    this.router.navigate([`home/${groupId}/plans`]);
   }
 
   routeToCosts(groupId: number) {
-    this.router.navigate([`home/plains/${groupId}/costs`]);
+    this.router.navigate([`home/${groupId}/costs`]);
   }
 
 }

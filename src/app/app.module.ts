@@ -14,23 +14,21 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstScreenComponent } from './first-screen/first-screen.component';
-import { PlainScreenComponent } from './plain-screen/plain-screen/plain-screen.component';
 import { DialogAddGroupComponent } from './first-screen/dialog-add-group/dialog-add-group/dialog-add-group.component';
 import { DefaultContentComponent } from './first-screen/default-content/default-content.component';
-import { CreatePlainComponent } from './plain-screen/create-plain/create-plain/create-plain.component';
 import { CostsScreenComponent } from './costs-screen/costs-screen/costs-screen.component';
 import { GroupScreenComponent } from './group-screen/group-screen/group-screen.component';
+import { PlansScreenComponent } from './plans-screen/plans-screen/plans-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstScreenComponent,
-    PlainScreenComponent,
     DialogAddGroupComponent,
     DefaultContentComponent,
-    CreatePlainComponent,
     CostsScreenComponent,
     GroupScreenComponent,
+    PlansScreenComponent,
   ],
   imports: [
     BrowserModule,

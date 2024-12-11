@@ -7,11 +7,11 @@ import { Router, Params } from '@angular/router';
 import { GroupService } from 'src/services/group-service';
 
 @Component({
-  selector: 'app-plain-screen',
-  templateUrl: './plain-screen.component.html',
-  styleUrls: ['./plain-screen.component.css']
+  selector: 'app-group-screen',
+  templateUrl: './group-screen.component.html',
+  styleUrls: ['./group-screen.component.css']
 })
-export class PlainScreenComponent implements OnInit {
+export class GroupScreenComponent implements OnInit {
 
   groupId: number;
   groups: Group[] = [];

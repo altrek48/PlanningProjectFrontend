@@ -1,3 +1,4 @@
+import { DecimalPipe } from "@angular/common";
 import { ProductInPlane } from "./productInTask";
 
 export class Task {
@@ -7,6 +8,7 @@ export class Task {
     this.comment = "";
     this.amount = null;
     this.products = null;
+    this.completeness = 0;
   }
 
   id: number | null;
@@ -14,6 +16,7 @@ export class Task {
   comment: string | null;
   amount: number | null;
   products: ProductInPlane[] | null;
+  completeness: number;
   //доделать для purchasesIds
 
 

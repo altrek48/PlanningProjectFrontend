@@ -16,6 +16,7 @@ export class GroupScreenComponent implements OnInit {
   groupId: number;
   groups: Group[] = [];
   currentGroupName: string = '';
+  isPlanScreen: boolean = true;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -26,9 +27,13 @@ export class GroupScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isPlanScreen = this.router.url.includes('/plans');
     this.activateRoute.params.subscribe((params: Params) => {
       this.groupId = +params['groupId'];
       this.setGroupName();
+    });
+    this.router.events.subscribe(() => {
+      this.isPlanScreen = this.router.url.includes('/plans');
     });
     if(history.state.groups) {
       this.groups = history.state.groups;
@@ -63,6 +68,14 @@ export class GroupScreenComponent implements OnInit {
 
   routeToCosts(groupId: number) {
     this.router.navigate([`home/${groupId}/costs`]);
+  }
+
+  createNewPlan() {
+    console.log("createNewPlan");
+  }
+
+  createNewPurchase() {
+    console.log("createNewPurchase");
   }
 
 }

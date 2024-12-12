@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Group } from 'src/models/group';
 import { Router, Params } from '@angular/router';
 import { GroupService } from 'src/services/group-service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-plans-screen',
@@ -13,26 +14,18 @@ import { GroupService } from 'src/services/group-service';
 })
 export class PlansScreenComponent implements OnInit {
   groupId: number;
-  lastGroupId: number | null = null; //чтобы пофиксить проблему с повторным вызовом loadTasks()
   tasks: Task[] = [];
+  subscription: Subscription | null | undefined = null; // для отписки
 
   constructor(private activateRoute: ActivatedRoute,
-    private router: Router,
-    private groupService: GroupService,
     private baseService: BaseService) {
       this.groupId = activateRoute.snapshot.params["groupId"];
     }
 
   ngOnInit(): void {
-    this.activateRoute.parent?.params.subscribe((params: Params) => {
-      const newGroupId = +params['groupId'];
-
-      //todo после прихода со вкладки расходов все равно не работает корректно, loadTasks() вызывается дважды
-      if(this.lastGroupId !== newGroupId) {
-        this.lastGroupId = newGroupId;
-        this.groupId = newGroupId;
+    this.subscription = this.activateRoute.parent?.params.subscribe((params: Params) => {
+        this.groupId = +params['groupId'];
         this.loadTasks();
-      }
     });
   }
 
@@ -42,6 +35,10 @@ export class PlansScreenComponent implements OnInit {
       this.tasks = data;
       console.log("tasks: ", this.tasks);
     })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 
 }

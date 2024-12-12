@@ -26,7 +26,7 @@
   border-right: 1px solid #000;
 }
 
-.add-plan {
+.add-plan_purchase {
   position: fixed;
   bottom: 60px;
   left: 60%;
@@ -48,7 +48,7 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  color: #333; 
+  color: #333;
   margin-top: 20px;
   margin-bottom: 20px;
   max-width: 90%;

@@ -20,6 +20,9 @@ import { CostsScreenComponent } from './costs-screen/costs-screen/costs-screen.c
 import { GroupScreenComponent } from './group-screen/group-screen/group-screen.component';
 import { PlansScreenComponent } from './plans-screen/plans-screen/plans-screen.component';
 import { SinglePlanComponent } from './single-plan/single-plan/single-plan.component';
+import { AllPlansComponent } from './all-plans/all-plans/all-plans.component';
+import { DialogAddProductComponent } from './dialog-add-product/dialog-add-product/dialog-add-product.component';
+import { DialogEditProductComponent } from './dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { SinglePlanComponent } from './single-plan/single-plan/single-plan.compo
     GroupScreenComponent,
     PlansScreenComponent,
     SinglePlanComponent,
+    AllPlansComponent,
+    DialogAddProductComponent,
+    DialogEditProductComponent,
   ],
   imports: [
     BrowserModule,

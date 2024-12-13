@@ -1,12 +1,2 @@
-<div class="plans-container">
-  <div *ngFor="let task of tasks" class="plan-card">
-  <div class="plan-header"> {{task.name}} </div>
-  <div class="plan-description">
-    {{ task.comment || 'Описание отсутствует' }}
-  </div>
-  <div class="plan-body">
-    <div class="progress">{{task.completeness || '0'}}%</div>
-    <div class="amount">{{task.amount || '0'}}руб</div>
-  </div>
-  </div>
-</div>
+<router-outlet></router-outlet>
+

@@ -13,32 +13,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./plans-screen.component.css']
 })
 export class PlansScreenComponent implements OnInit {
-  groupId: number;
-  tasks: Task[] = [];
-  subscription: Subscription | null | undefined = null; // для отписки
 
-  constructor(private activateRoute: ActivatedRoute,
-    private baseService: BaseService) {
-      this.groupId = activateRoute.snapshot.params["groupId"];
-    }
+
+  constructor() {}
 
   ngOnInit(): void {
-    this.subscription = this.activateRoute.parent?.params.subscribe((params: Params) => {
-        this.groupId = +params['groupId'];
-        this.loadTasks();
-    });
-  }
 
-
-  loadTasks() {
-    this.baseService.getAllTasksByGroupId(this.groupId).subscribe(data => {
-      this.tasks = data;
-      console.log("tasks: ", this.tasks);
-    })
-  }
-
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
   }
 
 }

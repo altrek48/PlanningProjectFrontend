@@ -26,4 +26,8 @@ export class BaseService {
       return this.http.get<Task[]>(`api/base/task/get/${groupId}`);
     }
 
+    addNewTask(newTask: Task, groupId: number): Observable<Task> {
+      return this.http.post<Task>(`api/base/task/create/${groupId}`, newTask);
+    }
+
 }

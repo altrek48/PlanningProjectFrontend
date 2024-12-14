@@ -61,6 +61,10 @@ export class SinglePlanComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((updatedProduct: ProductInPlane) => {
+      //todo closure или замыкания
+      debugger;
+      console.log(`${product.name}`);
+
       //???????
     });
   }

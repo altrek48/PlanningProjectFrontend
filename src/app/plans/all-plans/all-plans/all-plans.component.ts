@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from './../../../models/task';
-import { BaseService } from './../../../services/base-service';
+import { Task } from 'src/models/task';
+import { BaseService } from 'src/services/base-service';
 import { ActivatedRoute } from '@angular/router';
 import { Group } from 'src/models/group';
 import { Router, Params } from '@angular/router';
@@ -18,10 +18,9 @@ export class AllPlansComponent implements OnInit {
   tasks: Task[] = [];
   subscription: Subscription | null | undefined = null; // для отписки
 
-    constructor(private activateRoute: ActivatedRoute,
-      private baseService: BaseService) {
-        this.groupId = activateRoute.snapshot.params["groupId"];
-      }
+    constructor(private activateRoute: ActivatedRoute, private baseService: BaseService) {
+      this.groupId = activateRoute.snapshot.params["groupId"];
+    }
 
     ngOnInit(): void {
       this.subscription = this.activateRoute.parent?.parent?.params.subscribe((params: Params) => {

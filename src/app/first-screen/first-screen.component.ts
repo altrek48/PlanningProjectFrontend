@@ -56,7 +56,7 @@ export class FirstScreenComponent implements OnInit {
       data: null,
     });
     dialogAddGroup.afterClosed().subscribe((result: Group) => {
-      if (result.name.length > 5) {
+      if (result.name.length >= 2) {
         this.baseService.addNewGroup(result).subscribe(() => {
           this.loadGroups();
         });

@@ -4,10 +4,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router, Params } from '@angular/router';
 import { ProductInPlane } from 'src/models/productInTask';
 import { ActivatedRoute } from '@angular/router';
-import { DialogAddProductComponent } from 'src/app/dialog-add-product/dialog-add-product/dialog-add-product.component';
+import { DialogAddProductComponent } from '../../dialogs/dialog-add-product/dialog-add-product/dialog-add-product.component';
 import { Task } from 'src/models/task';
 import { BaseService } from 'src/services/base-service';
-import { DialogEditProductComponent } from 'src/app/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
+import { DialogEditProductComponent } from '../../dialogs/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
 
 @Component({
   selector: 'app-single-plan',
@@ -17,7 +17,7 @@ import { DialogEditProductComponent } from 'src/app/dialog-edit-product/dialog-e
 export class SinglePlanComponent implements OnInit {
 
   task: Task;
-  displayedColumns: string[] = [ 'name', 'price', 'actions'];
+  displayedColumns: string[] = [ 'name', 'actions'];
   dataSource = new MatTableDataSource<ProductInPlane>([]);
   groupId: number;
 

@@ -18,7 +18,6 @@ export class BaseService {
     }
 
     addNewGroup(newGroup: Group): Observable<Group> {
-      console.log('addNewStudent');
       return this.http.post<Group>('api/base/group/create', newGroup).pipe();
     }
 

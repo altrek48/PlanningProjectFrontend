@@ -16,13 +16,13 @@ import { AppComponent } from './app.component';
 import { FirstScreenComponent } from './first-screen/first-screen.component';
 import { DialogAddGroupComponent } from './first-screen/dialog-add-group/dialog-add-group/dialog-add-group.component';
 import { DefaultContentComponent } from './first-screen/default-content/default-content.component';
-import { CostsScreenComponent } from './costs-screen/costs-screen/costs-screen.component';
+import { CostsScreenComponent } from './costs/costs-screen/costs-screen/costs-screen.component';
 import { GroupScreenComponent } from './group-screen/group-screen/group-screen.component';
-import { PlansScreenComponent } from './plans-screen/plans-screen/plans-screen.component';
-import { SinglePlanComponent } from './single-plan/single-plan/single-plan.component';
-import { AllPlansComponent } from './all-plans/all-plans/all-plans.component';
-import { DialogAddProductComponent } from './dialog-add-product/dialog-add-product/dialog-add-product.component';
-import { DialogEditProductComponent } from './dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
+import { PlansScreenComponent } from './plans/plans-screen/plans-screen/plans-screen.component';
+import { SinglePlanComponent } from './plans/single-plan/single-plan/single-plan.component';
+import { AllPlansComponent } from './plans/all-plans/all-plans/all-plans.component';
+import { DialogAddProductComponent } from './plans/dialogs/dialog-add-product/dialog-add-product/dialog-add-product.component';
+import { DialogEditProductComponent } from './plans/dialogs/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
 
 @NgModule({
   declarations: [

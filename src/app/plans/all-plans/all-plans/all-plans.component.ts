@@ -18,9 +18,12 @@ export class AllPlansComponent implements OnInit {
   tasks: Task[] = [];
   subscription: Subscription | null | undefined = null; // для отписки
 
-    constructor(private activateRoute: ActivatedRoute, private baseService: BaseService) {
-      this.groupId = activateRoute.snapshot.params["groupId"];
-    }
+    constructor(
+      private activateRoute: ActivatedRoute,
+      private baseService: BaseService,
+      private router: Router) {
+        this.groupId = activateRoute.snapshot.params["groupId"];
+      }
 
     ngOnInit(): void {
       this.subscription = this.activateRoute.parent?.parent?.params.subscribe((params: Params) => {
@@ -39,6 +42,17 @@ export class AllPlansComponent implements OnInit {
 
     ngOnDestroy(): void {
       this.subscription?.unsubscribe();
+    }
+
+    routeToThisPlan(taskId: number | null) {
+      if(taskId === null) {
+        console.log("Id плана === null");
+      }
+      else this.router.navigate([`home/${this.groupId}/plans/${taskId}`],
+        {
+          state: { columns: ["name", "price", "actions"]}
+        }
+      )
     }
 
   }

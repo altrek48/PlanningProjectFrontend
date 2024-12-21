@@ -50,12 +50,21 @@
     <button
       mat-raised-button color="primary"
       class="add-product"
-      (click)="openAddProductDialog()"
+      (click)="addProduct()"
     >
       +
     </button>
 
     <button
+      *ngIf="!isAddScreen"
+      mat-raised-button color="primary"
+      class="save-plan"
+      (click)="changePlan()"
+    >
+      Сохранить
+    </button>
+    <button
+    *ngIf="isAddScreen"
       mat-raised-button color="primary"
       class="save-plan"
       (click)="savePlan()"

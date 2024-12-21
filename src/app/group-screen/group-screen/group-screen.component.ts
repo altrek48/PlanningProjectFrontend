@@ -72,7 +72,11 @@ export class GroupScreenComponent implements OnInit {
 
   createNewPlan() {
     console.log("createNewPlan");
-    this.router.navigate([`home/${this.groupId}/plans/add`])
+    this.router.navigate([`home/${this.groupId}/plans/add`],
+      {
+        state: { columns: ["name", "actions"]}
+      }
+    )
   }
 
   createNewPurchase() {

@@ -19,6 +19,7 @@ const routes: Routes = [
             children: [
               {path: '', component: AllPlansComponent},
               {path: 'add', component: SinglePlanComponent},
+              {path: ':taskId', component:SinglePlanComponent},
               {path: '**', redirectTo: '', pathMatch: 'full'}
             ]
           },

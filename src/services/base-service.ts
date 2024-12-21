@@ -29,4 +29,12 @@ export class BaseService {
       return this.http.post<Task>(`api/base/task/create/${groupId}`, newTask);
     }
 
+    getTask(taskId: number): Observable<Task> {
+      return this.http.get<Task>(`api/base/task/getOne/${taskId}`);
+    }
+
+    changeTask(task: Task): Observable<Task> {
+      return this.http.put<Task>(`api/base/task/change`, task);
+    }
+
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Group } from 'src/models/group';
+import { Purchase } from 'src/models/purchase';
 import { Task } from 'src/models/task';
 
 
@@ -35,6 +36,10 @@ export class BaseService {
 
     changeTask(task: Task): Observable<Task> {
       return this.http.put<Task>(`api/base/task/change`, task);
+    }
+
+    getAllPurchasesByGroupId(groupId: number): Observable<Purchase[]> {
+      return this.http.get<Purchase[]>(`api/base/purchase/getAll/${groupId}`)
     }
 
 }

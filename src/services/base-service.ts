@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Group } from 'src/models/group';
 import { Purchase } from 'src/models/purchase';
 import { Task } from 'src/models/task';
+import { User } from 'src/models/user';
 
 
 @Injectable({
@@ -40,6 +41,14 @@ export class BaseService {
 
     getAllPurchasesByGroupId(groupId: number): Observable<Purchase[]> {
       return this.http.get<Purchase[]>(`api/base/purchase/getAll/${groupId}`)
+    }
+
+    login(authUser: User): Observable<string> {
+      return this.http.post<string>(`/api/login`, authUser, {
+        headers: {
+          
+        }
+      })
     }
 
 }

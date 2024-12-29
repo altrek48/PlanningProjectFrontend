@@ -23,6 +23,7 @@ import { SinglePlanComponent } from './plans/single-plan/single-plan/single-plan
 import { AllPlansComponent } from './plans/all-plans/all-plans/all-plans.component';
 import { DialogAddProductComponent } from './plans/dialogs/dialog-add-product/dialog-add-product/dialog-add-product.component';
 import { DialogEditProductComponent } from './plans/dialogs/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
+import { LoginScreenComponent } from './login-screen/login-screen/login-screen.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DialogEditProductComponent } from './plans/dialogs/dialog-edit-product/
     AllPlansComponent,
     DialogAddProductComponent,
     DialogEditProductComponent,
+    LoginScreenComponent,
   ],
   imports: [
     BrowserModule,

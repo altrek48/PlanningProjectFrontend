@@ -7,9 +7,11 @@ import { GroupScreenComponent } from './group-screen/group-screen/group-screen.c
 import { PlansScreenComponent } from './plans/plans-screen/plans-screen/plans-screen.component';
 import { SinglePlanComponent } from './plans/single-plan/single-plan/single-plan.component';
 import { AllPlansComponent } from './plans/all-plans/all-plans/all-plans.component';
+import { LoginScreenComponent } from './login-screen/login-screen/login-screen.component';
 
 
 const routes: Routes = [
+  { path: 'login', component: LoginScreenComponent},
   { path: 'home', component: FirstScreenComponent,
     children: [
       {path: ':groupId', component: GroupScreenComponent,
@@ -28,7 +30,7 @@ const routes: Routes = [
       {path: '', component: DefaultContentComponent}
     ]
   },
-  { path: '**', redirectTo: '/home', pathMatch: 'full'}
+  { path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({

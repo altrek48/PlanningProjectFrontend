@@ -8,10 +8,12 @@ import { PlansScreenComponent } from './plans/plans-screen/plans-screen/plans-sc
 import { SinglePlanComponent } from './plans/single-plan/single-plan/single-plan.component';
 import { AllPlansComponent } from './plans/all-plans/all-plans/all-plans.component';
 import { LoginScreenComponent } from './login-screen/login-screen/login-screen.component';
+import { RegisterScreenComponent } from './register-screen/register-screen.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginScreenComponent},
+  { path: 'registration', component: RegisterScreenComponent},
   { path: 'home', component: FirstScreenComponent,
     children: [
       {path: ':groupId', component: GroupScreenComponent,
@@ -30,7 +32,7 @@ const routes: Routes = [
       {path: '', component: DefaultContentComponent}
     ]
   },
-  { path: '**', redirectTo: '/login', pathMatch: 'full'}
+  { path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

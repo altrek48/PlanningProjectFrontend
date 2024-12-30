@@ -44,7 +44,11 @@ export class BaseService {
     }
 
     login(loginUser: User): Observable<{token: string}> {
-      return this.http.post<{token: string}>(`/api/login`, loginUser);
+      return this.http.post<{token: string}>(`api/login`, loginUser);
+    }
+
+    registration(newUser: User): Observable<User> {
+      return this.http.post<User>('api/register', newUser);
     }
 
 }

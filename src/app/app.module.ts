@@ -26,6 +26,7 @@ import { DialogEditProductComponent } from './plans/dialogs/dialog-edit-product/
 import { LoginScreenComponent } from './login-screen/login-screen/login-screen.component';
 import { HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from 'src/services/auth-intercepter';
+import { RegisterScreenComponent } from './register-screen/register-screen.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AuthInterceptor } from 'src/services/auth-intercepter';
     DialogAddProductComponent,
     DialogEditProductComponent,
     LoginScreenComponent,
+    RegisterScreenComponent,
   ],
   imports: [
     BrowserModule,

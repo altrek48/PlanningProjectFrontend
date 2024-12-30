@@ -24,6 +24,8 @@ import { AllPlansComponent } from './plans/all-plans/all-plans/all-plans.compone
 import { DialogAddProductComponent } from './plans/dialogs/dialog-add-product/dialog-add-product/dialog-add-product.component';
 import { DialogEditProductComponent } from './plans/dialogs/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
 import { LoginScreenComponent } from './login-screen/login-screen/login-screen.component';
+import { HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AuthInterceptor } from 'src/services/auth-intercepter';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,13 @@ import { LoginScreenComponent } from './login-screen/login-screen/login-screen.c
     MatPaginatorModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

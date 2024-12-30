@@ -43,12 +43,8 @@ export class BaseService {
       return this.http.get<Purchase[]>(`api/base/purchase/getAll/${groupId}`)
     }
 
-    login(authUser: User): Observable<string> {
-      return this.http.post<string>(`/api/login`, authUser, {
-        headers: {
-          
-        }
-      })
+    login(loginUser: User): Observable<{token: string}> {
+      return this.http.post<{token: string}>(`/api/login`, loginUser);
     }
 
 }

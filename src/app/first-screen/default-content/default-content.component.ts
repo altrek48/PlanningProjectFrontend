@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { LocalStorageService } from 'src/services/localStorage-service';
 
 @Component({
   selector: 'app-default-content',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private localStorage: LocalStorageService,private router: Router) { }
+
+  logout() {
+    this.localStorage.removeItem("token");
+    this.router.navigate(["/login"])
+
+  }
 
   ngOnInit(): void {
   }

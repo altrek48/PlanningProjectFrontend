@@ -27,6 +27,8 @@ import { LoginScreenComponent } from './login-screen/login-screen/login-screen.c
 import { HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from 'src/services/auth-intercepter';
 import { RegisterScreenComponent } from './register-screen/register-screen.component';
+import { AllCostsComponent } from './costs/all-costs/all-costs.component';
+import { SingleCostComponent } from './costs/single-cost/single-cost.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { RegisterScreenComponent } from './register-screen/register-screen.compo
     DialogEditProductComponent,
     LoginScreenComponent,
     RegisterScreenComponent,
+    AllCostsComponent,
+    SingleCostComponent,
   ],
   imports: [
     BrowserModule,

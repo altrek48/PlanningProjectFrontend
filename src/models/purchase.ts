@@ -7,6 +7,7 @@ export class Purchase {
     this.amount = null;
     this.products = null;
     this.date = null;
+    this.userPayer = "";
 
   }
 
@@ -15,6 +16,7 @@ export class Purchase {
   date: Date | null;
   amount: number | null;
   products: Product[] | null;
+  userPayer: string;
 
 
 }

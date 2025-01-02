@@ -9,6 +9,8 @@ import { SinglePlanComponent } from './plans/single-plan/single-plan/single-plan
 import { AllPlansComponent } from './plans/all-plans/all-plans/all-plans.component';
 import { LoginScreenComponent } from './login-screen/login-screen/login-screen.component';
 import { RegisterScreenComponent } from './register-screen/register-screen.component';
+import { AllCostsComponent } from './costs/all-costs/all-costs.component';
+import { SingleCostComponent } from './costs/single-cost/single-cost.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,12 @@ const routes: Routes = [
     children: [
       {path: ':groupId', component: GroupScreenComponent,
         children: [
-          {path: 'costs', component: CostsScreenComponent},
+          {path: 'costs', component: CostsScreenComponent,
+            children: [
+              {path: '', component: AllCostsComponent},
+              {path: ':purchaseId', component: SingleCostComponent}
+            ]
+          },
           {path: 'plans', component: PlansScreenComponent,
             children: [
               {path: '', component: AllPlansComponent},

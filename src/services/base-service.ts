@@ -43,6 +43,10 @@ export class BaseService {
       return this.http.get<Purchase[]>(`api/base/purchase/getAll/${groupId}`)
     }
 
+    getPurchase(purchaseId: number): Observable<Purchase> {
+      return this.http.get<Purchase>(`api/base/purchase/get/${purchaseId}`)
+    }
+
     login(loginUser: User): Observable<{token: string}> {
       return this.http.post<{token: string}>(`api/login`, loginUser);
     }

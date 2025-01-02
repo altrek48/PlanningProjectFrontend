@@ -101,6 +101,7 @@ export class SinglePlanComponent implements OnInit {
 
   changePlan() {
     if(this.task.name.length >= 5) {
+      this.task.products = this.dataSource.data;
       this.baseService.changeTask(this.task).subscribe(() => {
         this.backToPlans();
       });

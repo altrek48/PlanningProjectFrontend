@@ -81,6 +81,7 @@ export class GroupScreenComponent implements OnInit {
 
   createNewPurchase() {
     console.log("createNewPurchase");
+    this.router.navigate([`home/${this.groupId}/costs/add`]);
   }
 
 }

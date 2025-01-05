@@ -9,11 +9,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './dialog-edit-product.component.html',
   styleUrls: ['./dialog-edit-product.component.css']
 })
-export class DialogEditProductComponent implements OnInit {
+export class DialogEditProductInPlaneComponent implements OnInit {
 
   editingProduct: ProductInPlane;
 
-  constructor(public dialogRef: MatDialogRef<DialogEditProductComponent>,
+  constructor(public dialogRef: MatDialogRef<DialogEditProductInPlaneComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ProductInPlane) {
       this.editingProduct = data ? { ...data } : new ProductInPlane();;
     }

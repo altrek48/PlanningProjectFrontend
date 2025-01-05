@@ -9,12 +9,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './dialog-add-product.component.html',
   styleUrls: ['./dialog-add-product.component.css']
 })
-export class DialogAddProductComponent implements OnInit {
+export class DialogAddProductInPlaneComponent implements OnInit {
 
   creatingProductInPlane: ProductInPlane;
 
 
-  constructor(public dialogRef: MatDialogRef<DialogAddProductComponent>,
+  constructor(public dialogRef: MatDialogRef<DialogAddProductInPlaneComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ProductInPlane) {
       this.creatingProductInPlane = new ProductInPlane();
      }

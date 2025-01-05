@@ -5,10 +5,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router, Params } from '@angular/router';
 import { ProductInPlane } from 'src/models/productInTask';
 import { ActivatedRoute } from '@angular/router';
-import { DialogAddProductComponent } from '../../dialogs/dialog-add-product/dialog-add-product/dialog-add-product.component';
+import { DialogAddProductInPlaneComponent } from '../../dialogs/dialog-add-product/dialog-add-product/dialog-add-product.component';
 import { Task } from 'src/models/task';
 import { BaseService } from 'src/services/base-service';
-import { DialogEditProductComponent } from '../../dialogs/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
+import { DialogEditProductInPlaneComponent } from '../../dialogs/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
 import { Location } from '@angular/common';
 
 @Component({
@@ -63,7 +63,7 @@ export class SinglePlanComponent implements OnInit {
   }
 
   addProduct() {
-    const dialogRef = this.dialog.open(DialogAddProductComponent, {
+    const dialogRef = this.dialog.open(DialogAddProductInPlaneComponent, {
       width: '400px',
     });
 
@@ -76,7 +76,7 @@ export class SinglePlanComponent implements OnInit {
   }
 
   editProduct(product: ProductInPlane) {
-    const dialogRef = this.dialog.open(DialogEditProductComponent, {
+    const dialogRef = this.dialog.open(DialogEditProductInPlaneComponent, {
       width: '400px',
       data: product,
     });

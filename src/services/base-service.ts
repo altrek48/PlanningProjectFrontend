@@ -39,6 +39,10 @@ export class BaseService {
       return this.http.put<Task>(`api/base/task/change`, task);
     }
 
+    addNewPurchase(purchase: Purchase, groupId: number): Observable<Purchase> {
+      return this.http.post<Purchase>(`api/base/purchase/create/${groupId}`, purchase)
+    }
+
     getAllPurchasesByGroupId(groupId: number): Observable<Purchase[]> {
       return this.http.get<Purchase[]>(`api/base/purchase/getAll/${groupId}`)
     }

@@ -21,14 +21,16 @@ import { GroupScreenComponent } from './group-screen/group-screen/group-screen.c
 import { PlansScreenComponent } from './plans/plans-screen/plans-screen/plans-screen.component';
 import { SinglePlanComponent } from './plans/single-plan/single-plan/single-plan.component';
 import { AllPlansComponent } from './plans/all-plans/all-plans/all-plans.component';
-import { DialogAddProductComponent } from './plans/dialogs/dialog-add-product/dialog-add-product/dialog-add-product.component';
-import { DialogEditProductComponent } from './plans/dialogs/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
+import { DialogAddProductInPlaneComponent } from './plans/dialogs/dialog-add-product/dialog-add-product/dialog-add-product.component';
+import { DialogEditProductInPlaneComponent } from './plans/dialogs/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
 import { LoginScreenComponent } from './login-screen/login-screen/login-screen.component';
 import { HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptor } from 'src/services/auth-intercepter';
 import { RegisterScreenComponent } from './register-screen/register-screen.component';
 import { AllCostsComponent } from './costs/all-costs/all-costs.component';
 import { SingleCostComponent } from './costs/single-cost/single-cost.component';
+import { DialogAddProductComponent } from './costs/dialogs/dialog-add-product/dialog-add-product.component';
+import { DialogEditProductComponent } from './costs/dialogs/dialog-edit-product/dialog-edit-product.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +43,14 @@ import { SingleCostComponent } from './costs/single-cost/single-cost.component';
     PlansScreenComponent,
     SinglePlanComponent,
     AllPlansComponent,
-    DialogAddProductComponent,
-    DialogEditProductComponent,
+    DialogAddProductInPlaneComponent,
+    DialogEditProductInPlaneComponent,
     LoginScreenComponent,
     RegisterScreenComponent,
     AllCostsComponent,
     SingleCostComponent,
+    DialogAddProductComponent,
+    DialogEditProductComponent,
   ],
   imports: [
     BrowserModule,

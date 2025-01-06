@@ -30,15 +30,15 @@ export class SinglePlanComponent implements OnInit {
     private router: Router,
     private activateRoute: ActivatedRoute,
     private baseService: BaseService,
-    private location: Location
   ) {
     this.groupId = activateRoute.snapshot.params["groupId"];
     this.task = new Task();
-    const state = this.location.getState() as {columns: string[]};
-    this.displayedColumns = state.columns;
   }
 
   ngOnInit(): void {
+    this.activateRoute.parent?.parent?.params.subscribe((params: Params) => {
+      this.groupId = +params['groupId'];
+    });
     //проверка на последний сегмент urlа
    if(this.activateRoute.snapshot.url.slice(-1)[0]?.path === "add") {
     this.displayedColumns = ["name", "actions"];
@@ -47,15 +47,12 @@ export class SinglePlanComponent implements OnInit {
    else {
     this.taskId = Number(this.activateRoute.snapshot.url.slice(-1)[0]?.path);
     this.displayedColumns = ["name","price", "actions"];
-    this.baseService.getTask(this.taskId).subscribe((task: Task) => {
+    this.baseService.getTask(this.groupId, this.taskId).subscribe((task: Task) => {
       this.task = task;
       this.dataSource = new MatTableDataSource<ProductInPlane>(task.products || []);
     })
     this.isAddScreen = false;
    }
-    this.activateRoute.parent?.parent?.params.subscribe((params: Params) => {
-      this.groupId = +params['groupId'];
-    })
   }
 
   backToPlans() {
@@ -102,7 +99,7 @@ export class SinglePlanComponent implements OnInit {
   changePlan() {
     if(this.task.name.length >= 5) {
       this.task.products = this.dataSource.data;
-      this.baseService.changeTask(this.task).subscribe(() => {
+      this.baseService.changeTask(this.task, this.groupId).subscribe(() => {
         this.backToPlans();
       });
     }

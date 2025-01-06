@@ -31,12 +31,12 @@ export class BaseService {
       return this.http.post<Task>(`api/base/task/create/${groupId}`, newTask);
     }
 
-    getTask(taskId: number): Observable<Task> {
-      return this.http.get<Task>(`api/base/task/getOne/${taskId}`);
+    getTask(groupId: number, taskId: number): Observable<Task> {
+      return this.http.get<Task>(`api/base/task/getOne/${groupId}/${taskId}`);
     }
 
-    changeTask(task: Task): Observable<Task> {
-      return this.http.put<Task>(`api/base/task/change`, task);
+    changeTask(task: Task, groupId: number): Observable<Task> {
+      return this.http.put<Task>(`api/base/task/change/${groupId}`, task);
     }
 
     addNewPurchase(purchase: Purchase, groupId: number): Observable<Purchase> {
@@ -47,8 +47,8 @@ export class BaseService {
       return this.http.get<Purchase[]>(`api/base/purchase/getAll/${groupId}`)
     }
 
-    getPurchase(purchaseId: number): Observable<Purchase> {
-      return this.http.get<Purchase>(`api/base/purchase/get/${purchaseId}`)
+    getPurchase(groupId:number, purchaseId: number): Observable<Purchase> {
+      return this.http.get<Purchase>(`api/base/purchase/get/${groupId}/${purchaseId}`)
     }
 
     login(loginUser: User): Observable<{token: string}> {

@@ -48,11 +48,7 @@ export class AllPlansComponent implements OnInit {
       if(taskId === null) {
         console.log("Id плана === null");
       }
-      else this.router.navigate([`home/${this.groupId}/plans/${taskId}`],
-        {
-          state: { columns: ["name", "price", "actions"]}
-        }
-      )
+      else this.router.navigate([`home/${this.groupId}/plans/${taskId}`])
     }
 
   }

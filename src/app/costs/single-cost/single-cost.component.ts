@@ -35,21 +35,25 @@ export class SingleCostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.activateRoute.snapshot.url.slice(-1)[0]?.path === "add") {
-      this.displayedColumns = ["name", "price", "actions"];
-      this.isAddScreen = true;
-    }
-    else {
+    this.activateRoute.parent?.parent?.params.subscribe((params: Params) => {
+      this.groupId = +params['groupId'];
+    });
+    this.activateRoute.url.subscribe(() => {
+      if(this.activateRoute.snapshot.url.slice(-1)[0]?.path === "add") {
+        this.displayedColumns = ["name", "price", "actions"];
+        this.purchase = new Purchase()// Очистка при добавлении нового
+        this.dataSource = new MatTableDataSource<Product>([]);
+        this.isAddScreen = true;
+      }
+      else {
         this.purchaseId = Number(this.activateRoute.snapshot.url.slice(-1)[0]?.path);
         this.displayedColumns = ["name", "price"];
-        this.baseService.getPurchase(this.purchaseId).subscribe((purchase: Purchase) => {
+        this.baseService.getPurchase(this.groupId, this.purchaseId).subscribe((purchase: Purchase) => {
           this.purchase = purchase;
           this.dataSource = new MatTableDataSource<Product>(this.purchase.products || []);
         })
         this.isAddScreen = false;
-    }
-    this.activateRoute.parent?.parent?.params.subscribe((params: Params) => {
-      this.groupId = +params['groupId'];
+      }
     })
   }
 
@@ -92,6 +96,11 @@ export class SingleCostComponent implements OnInit {
       })
     }
     else console.log("products are null or storeName.length < 2")
+  }
+
+  ngOnDestroy(): void {
+    this.purchase = new Purchase();
+    this.dataSource = new MatTableDataSource<Product>([]);
   }
 
 }

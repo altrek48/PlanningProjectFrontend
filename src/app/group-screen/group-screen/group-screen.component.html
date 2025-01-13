@@ -1,4 +1,10 @@
-<h1>{{this.currentGroupName}}</h1>
+<div class="header">
+  <h1>{{ this.currentGroupName }}</h1>
+  <button
+    *ngIf="isGroupCreator"
+    class="add-button-user" (click)="addUser()">Добавить участников
+  </button>
+</div>
 <router-outlet></router-outlet>
 <div class="main-content">
   <div class="add-plan_purchase">

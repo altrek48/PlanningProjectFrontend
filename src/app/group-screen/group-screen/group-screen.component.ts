@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Group } from 'src/models/group';
 import { Router, Params } from '@angular/router';
 import { GroupService } from 'src/services/group-service';
+import { DialogAddUserComponent } from '../dialogs/dialog-add-user/dialog-add-user/dialog-add-user.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-group-screen',
@@ -17,11 +19,14 @@ export class GroupScreenComponent implements OnInit {
   groups: Group[] = [];
   currentGroupName: string = '';
   isPlanScreen: boolean = true;
+  isGroupCreator: boolean = false;
 
   constructor(
+    public dialog: MatDialog,
     private activateRoute: ActivatedRoute,
     private router: Router,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private baseService: BaseService,
   ) {
     this.groupId = activateRoute.snapshot.params["groupId"];
   }
@@ -31,6 +36,10 @@ export class GroupScreenComponent implements OnInit {
     this.activateRoute.params.subscribe((params: Params) => {
       this.groupId = +params['groupId'];
       this.setGroupName();
+      this.baseService.isGroupCreator(this.groupId).subscribe((result: boolean) => {
+        this.isGroupCreator = result;
+        console.log("new isGroupCreator search");
+      })
     });
     this.router.events.subscribe(() => {
       this.isPlanScreen = this.router.url.includes('/plans');
@@ -78,6 +87,23 @@ export class GroupScreenComponent implements OnInit {
   createNewPurchase() {
     console.log("createNewPurchase");
     this.router.navigate([`home/${this.groupId}/costs/add`]);
+  }
+
+  addUser() {
+    const dialogAddUser = this.dialog.open(DialogAddUserComponent, {
+          width: '600px',
+        });
+        dialogAddUser.afterClosed().subscribe((result: String) => {
+          //console.log("username: " , result);
+          if (result.length >= 3) {
+            this.baseService.addUserToGroup(this.groupId, result).subscribe(() => {
+              
+            });
+          }
+          else {
+            console.log("Недостаточно символов в username");
+          }
+        });
   }
 
 }

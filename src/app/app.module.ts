@@ -31,6 +31,8 @@ import { AllCostsComponent } from './costs/all-costs/all-costs.component';
 import { SingleCostComponent } from './costs/single-cost/single-cost.component';
 import { DialogAddProductComponent } from './costs/dialogs/dialog-add-product/dialog-add-product.component';
 import { DialogEditProductComponent } from './costs/dialogs/dialog-edit-product/dialog-edit-product.component';
+import { DialogDeletePlanComponent } from './plans/dialogs/dialog-delete-plan/dialog-delete-plan/dialog-delete-plan.component';
+import { DialogAddUserComponent } from './group-screen/dialogs/dialog-add-user/dialog-add-user/dialog-add-user.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { DialogEditProductComponent } from './costs/dialogs/dialog-edit-product/
     SingleCostComponent,
     DialogAddProductComponent,
     DialogEditProductComponent,
+    DialogDeletePlanComponent,
+    DialogAddUserComponent,
   ],
   imports: [
     BrowserModule,

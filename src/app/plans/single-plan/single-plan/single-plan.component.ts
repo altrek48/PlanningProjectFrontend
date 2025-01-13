@@ -10,6 +10,8 @@ import { Task } from 'src/models/task';
 import { BaseService } from 'src/services/base-service';
 import { DialogEditProductInPlaneComponent } from '../../dialogs/dialog-edit-product/dialog-edit-product/dialog-edit-product.component';
 import { Location } from '@angular/common';
+import { UrlSegment } from '@angular/router';
+import { DialogDeletePlanComponent } from '../../dialogs/dialog-delete-plan/dialog-delete-plan/dialog-delete-plan.component';
 
 @Component({
   selector: 'app-single-plan',
@@ -97,13 +99,28 @@ export class SinglePlanComponent implements OnInit {
   }
 
   changePlan() {
-    if(this.task.name.length >= 5) {
+    if(this.task.name.length >= 5 && this.taskId) {
       this.task.products = this.dataSource.data;
-      this.baseService.changeTask(this.task, this.groupId).subscribe(() => {
+      this.baseService.changeTask(this.task, this.groupId, this.taskId).subscribe(() => {
         this.backToPlans();
       });
     }
-    else console.log("task name are too short");
+    else console.log("task name are too short or taskId == null");
+  }
+  
+  deletePlan() {
+    const dialogRef = this.dialog.open(DialogDeletePlanComponent, {
+      width: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if(result === true && this.taskId != null) {
+        this.baseService.deleteTask(this.groupId, this.taskId).subscribe((id: Number) => {
+          console.log("task with id: " + id + " was deleted");
+        })
+        this.backToPlans();
+      }
+    });
   }
 
 }

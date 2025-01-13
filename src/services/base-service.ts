@@ -35,8 +35,12 @@ export class BaseService {
       return this.http.get<Task>(`api/base/task/getOne/${groupId}/${taskId}`);
     }
 
-    changeTask(task: Task, groupId: number): Observable<Task> {
-      return this.http.put<Task>(`api/base/task/change/${groupId}`, task);
+    changeTask(task: Task, groupId: number, taskId: number): Observable<Task> {
+      return this.http.put<Task>(`api/base/task/change/${groupId}/${taskId}`, task);
+    }
+
+    deleteTask(groupId: number, taskId: number): Observable<Number>{
+      return this.http.delete<Number>(`api/base/task/delete/${groupId}/${taskId}`)
     }
 
     addNewPurchase(purchase: Purchase, groupId: number): Observable<Purchase> {
@@ -57,6 +61,16 @@ export class BaseService {
 
     registration(newUser: User): Observable<User> {
       return this.http.post<User>('api/register', newUser);
+    }
+
+    isGroupCreator(groupId: number): Observable<boolean> {
+      return this.http.get<boolean>(`api/base/isGroupCreator/${groupId}`);
+    }
+
+    addUserToGroup(groupId: number, username: String): Observable<void> {
+      return this.http.post<void>(`api/base/user/add/${groupId}`, username);
+        
+      
     }
 
 }

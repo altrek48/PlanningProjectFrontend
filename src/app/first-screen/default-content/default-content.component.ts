@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+// import { AuthService } from 'src/services/auth-service';
+import { BaseService } from 'src/services/base-service';
 import { LocalStorageService } from 'src/services/localStorage-service';
 
 @Component({
@@ -9,7 +11,13 @@ import { LocalStorageService } from 'src/services/localStorage-service';
 })
 export class DefaultContentComponent implements OnInit {
 
-  constructor(private localStorage: LocalStorageService,private router: Router) { }
+  username: String = '';
+
+  constructor(
+    private localStorage: LocalStorageService,
+    private router: Router,
+    // private authService: AuthService,
+  ) { }
 
   logout() {
     this.localStorage.removeItem("token");
@@ -18,6 +26,9 @@ export class DefaultContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.authService.getUsername().subscribe((username: String) => {
+    //   this.username = username;
+    // })
   }
 
 }

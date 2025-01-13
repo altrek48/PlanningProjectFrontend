@@ -44,15 +44,39 @@
   cursor: pointer;
 }
 
-h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  color: #333;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.header {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  position: relative;
+  margin: 20px auto; 
   max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  flex-grow: 1;
+  text-align: center; 
+}
+
+.add-button-user {
+  position: fixed;
+  right: 10px;
+  top:50px; 
+  transform: translateY(-50%); 
+  font-size: 1rem;
+  color: #fff;
+  background-color: #3f51b5;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button-user:hover {
+  background-color: #303f9f;
+}

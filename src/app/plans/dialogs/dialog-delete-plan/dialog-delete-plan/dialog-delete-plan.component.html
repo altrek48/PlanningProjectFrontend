@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Удалить план?</h1>
+<div mat-dialog-content>
+  Вы уверены, что хотите удалить план?
+  Только создатель плана может его удалить.
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Отмена</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true">Удалить</button>
+</div>

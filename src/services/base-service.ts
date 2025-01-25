@@ -69,8 +69,14 @@ export class BaseService {
 
     addUserToGroup(groupId: number, username: String): Observable<void> {
       return this.http.post<void>(`api/base/user/add/${groupId}`, username);
-        
-      
+    }
+
+    createPurchaseInTask(purchase: Purchase, groupId: number, taskId: number): Observable<Purchase> {
+      return this.http.post<Purchase>(`api/base/purchase/create/${groupId}/${taskId}`, purchase);
+    }
+
+    getPurchaseIdByProductId(productId: number): Observable<number> {
+      return this.http.get<number>(`api/base/purchase/getPurchaseId/${[productId]}`);
     }
 
 }

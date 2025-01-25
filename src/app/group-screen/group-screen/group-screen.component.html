@@ -1,8 +1,7 @@
 <div class="header">
   <h1>{{ this.currentGroupName }}</h1>
-  <button
-    *ngIf="isGroupCreator"
-    class="add-button-user" (click)="addUser()">Добавить участников
+  <button *ngIf="isGroupCreator" class="add-button-user" (click)="addUser()">
+    Добавить участников
   </button>
 </div>
 <router-outlet></router-outlet>
@@ -13,18 +12,10 @@
     (click)="createNewPlan()"
     >+
     </button>
-    <button class="add-button"
-    *ngIf="!isPlanScreen"
-    (click)="createNewPurchase()"
-    >+
-    </button>
+    <button class="add-button"*ngIf="!isPlanScreen" (click)="createNewPurchase()">+</button>
   </div>
   <div class="buttons">
-    <button class="button plans"
-    (click)="routeToPlans(groupId)"
-    >Планы</button>
-    <button class="button expenses"
-    (click)="routeToCosts(groupId)"
-    >Расходы</button>
+    <button class="button plans" (click)="routeToPlans(groupId)">Планы</button>
+    <button class="button expenses" (click)="routeToCosts(groupId)">Расходы</button>
   </div>
 </div>

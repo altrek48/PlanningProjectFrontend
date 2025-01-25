@@ -32,6 +32,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  position: relative;
 }
 
 
@@ -74,6 +75,7 @@ mat-cell {
   align-self: flex-end;
   margin-top: 10px;
   font-size: 16px;
+  padding: 10px 20px;
 }
 
 .add-product {
@@ -87,12 +89,29 @@ mat-cell {
   font-size: 24px;
 }
 
-.save-plan {
-  padding: 10px 20px;
-}
-
 .full-width-table {
   width: 100%;
   min-width: 100%;
   table-layout: fixed;
+}
+
+.delete-plan {
+  align-self: flex-start;
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.purchase-plan {
+  align-self: flex-start;
+  margin-top: -140px;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.cancel-button {
+  position: absolute;
+  top: -50px;
+  left: 22px;
+  z-index: 10;
 }

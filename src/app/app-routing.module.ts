@@ -23,6 +23,7 @@ const routes: Routes = [
           {path: 'costs', component: CostsScreenComponent,
             children: [
               {path: '', component: AllCostsComponent},
+              {path: 'add', component: SingleCostComponent},
               {path: ':purchaseId', component: SingleCostComponent}
             ]
           },

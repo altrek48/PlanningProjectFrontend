@@ -3,11 +3,12 @@ export class ProductInPlane {
     this.id = null;
     this.name = "";
     this.completeness = false;
+    this.linkedProductId = null;
   }
 
   id: number | null;
   name: string;
   completeness: boolean;
-  //доделать для linkedProduct
+  linkedProductId: number | null;
 
 }

@@ -32,10 +32,9 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  position: relative;
 }
 
-
-.purchase-name,
 .comment {
   display: flex;
   gap: 10px;
@@ -95,4 +94,45 @@ mat-cell {
   width: 100%;
   min-width: 100%;
   table-layout: fixed;
+}
+
+.cancel-button {
+  position: absolute;
+  top: -55px;
+  left: 20px;
+  z-index: 10;
+}
+
+.purchase-name {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.task-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.plan-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.plan-input {
+  width: 100%;
+  max-width: 400px;
+  font-size: 20px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.task-name h1 {
+  margin: 0;
+  font-size: 20px;
 }

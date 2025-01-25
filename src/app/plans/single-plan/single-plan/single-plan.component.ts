@@ -48,7 +48,7 @@ export class SinglePlanComponent implements OnInit {
    }
    else {
     this.taskId = Number(this.activateRoute.snapshot.url.slice(-1)[0]?.path);
-    this.displayedColumns = ["name","price", "actions"];
+    this.displayedColumns = ["name","price", "purchase", "actions"];
     this.baseService.getTask(this.groupId, this.taskId).subscribe((task: Task) => {
       this.task = task;
       this.dataSource = new MatTableDataSource<ProductInPlane>(task.products || []);
@@ -107,7 +107,7 @@ export class SinglePlanComponent implements OnInit {
     }
     else console.log("task name are too short or taskId == null");
   }
-  
+
   deletePlan() {
     const dialogRef = this.dialog.open(DialogDeletePlanComponent, {
       width: '400px'
@@ -121,6 +121,20 @@ export class SinglePlanComponent implements OnInit {
         this.backToPlans();
       }
     });
+  }
+
+  addLinkedPurchase() {
+    this.router.navigate([`home/${this.groupId}/costs/add`], {
+        state: { taskName: this.task.name, taskId: this.taskId }
+    });
+  }
+
+  navigateToLinkedPurchase(productId: number) {
+    var purchaseId = this.baseService.getPurchaseIdByProductId(productId).subscribe((purchaseId: number) => {
+      if(purchaseId != null) {
+        this.router.navigate([`home/${this.groupId}/costs/${purchaseId}`]);
+      }
+    })
   }
 
 }

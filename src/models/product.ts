@@ -4,13 +4,14 @@ export class Product {
     this.name = "";
     this.price = null;
     this.bayer = null;
+    this. productInPlaneId = null;
   }
 
   id: number | null;
   name: string;
   price: number | null;
   bayer: null | string;
-  //доделать для linkedProduct
+  productInPlaneId: number | null;
 
 
 }

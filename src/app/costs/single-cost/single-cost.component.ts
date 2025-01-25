@@ -22,6 +22,10 @@ export class SingleCostComponent implements OnInit {
   groupId: number;
   purchaseId: number | null = null;
   isAddScreen: boolean = true;
+  taskName: string = "";
+  taskId: number | null = null;
+  //linkedTaskId: number | null = null;
+
 
   constructor(
     private dialog: MatDialog,
@@ -32,6 +36,11 @@ export class SingleCostComponent implements OnInit {
   ) {
     this.purchase = new Purchase();
     this.groupId = activateRoute.snapshot.params["groupId"];
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      this.taskName = navigation.extras.state['taskName'] || "";
+      this.taskId = navigation.extras.state['taskId'] || null;
+    }
   }
 
   ngOnInit(): void {
@@ -79,7 +88,7 @@ export class SingleCostComponent implements OnInit {
         width: '400px',
         data: product,
     });
-    
+
     dialogRef.afterClosed().subscribe((updatedProduct: Product) => {
       Object.assign(product, updatedProduct);
     });
@@ -91,9 +100,17 @@ export class SingleCostComponent implements OnInit {
 
   savePurchase() {
     if(this.purchase.products != null && this.purchase.storeName.length >= 2) {
-      this.baseService.addNewPurchase(this.purchase, this.groupId).subscribe(() => {
-        this.backToPurchases();
-      })
+      if(this.taskId != null && this.taskName != "") {
+        this.baseService.createPurchaseInTask(this.purchase, this.groupId, this.taskId).subscribe((createdPurchase: Purchase) => {
+          console.log("create linked purchase", createdPurchase);
+          this.backToPurchases();
+        })
+      }
+      else {
+        this.baseService.addNewPurchase(this.purchase, this.groupId).subscribe(() => {
+          this.backToPurchases();
+        })
+      }
     }
     else console.log("products are null or storeName.length < 2")
   }
@@ -101,6 +118,10 @@ export class SingleCostComponent implements OnInit {
   ngOnDestroy(): void {
     this.purchase = new Purchase();
     this.dataSource = new MatTableDataSource<Product>([]);
+  }
+
+  routeToLinkedTask(taskId: number) {
+    this.router.navigate([`home/${this.groupId}/plans/${taskId}`])
   }
 
 }

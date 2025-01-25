@@ -9,6 +9,7 @@ export class Task {
     this.amount = null;
     this.products = null;
     this.completeness = 0;
+    this.linkedPurchasesIds = null;
   }
 
   id: number | null;
@@ -17,7 +18,7 @@ export class Task {
   amount: number | null;
   products: ProductInPlane[] | null;
   completeness: number;
-  //доделать для purchasesIds
+  linkedPurchasesIds: number[] | null;
 
 
 }

@@ -1,4 +1,4 @@
-FROM node:14.21.3 AS angular-build
+FROM node:18.20.4 AS angular-build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install

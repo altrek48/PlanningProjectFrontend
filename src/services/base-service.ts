@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Group } from 'src/models/group';
+import { Profile } from 'src/models/profile';
 import { Purchase } from 'src/models/purchase';
 import { Task } from 'src/models/task';
 import { User } from 'src/models/user';
@@ -64,7 +65,7 @@ export class BaseService {
     }
 
     isGroupCreator(groupId: number): Observable<boolean> {
-      return this.http.get<boolean>(`api/base/isGroupCreator/${groupId}`);
+      return this.http.get<boolean>(`api/base/group/isCreator/${groupId}`);
     }
 
     addUserToGroup(groupId: number, username: String): Observable<void> {
@@ -77,6 +78,10 @@ export class BaseService {
 
     getPurchaseIdByProductId(productId: number): Observable<number> {
       return this.http.get<number>(`api/base/purchase/getPurchaseId/${[productId]}`);
+    }
+
+    getProfileInfo(): Observable<Profile> {
+      return this.http.get<Profile>(`api/base/user/getInfo`);
     }
 
 }

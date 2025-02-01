@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { Profile } from 'src/models/profile';
 // import { AuthService } from 'src/services/auth-service';
 import { BaseService } from 'src/services/base-service';
 import { LocalStorageService } from 'src/services/localStorage-service';
@@ -11,24 +12,26 @@ import { LocalStorageService } from 'src/services/localStorage-service';
 })
 export class DefaultContentComponent implements OnInit {
 
-  username: String = '';
+  profile: Profile | null = null;
 
   constructor(
     private localStorage: LocalStorageService,
     private router: Router,
-    // private authService: AuthService,
+    private baseService: BaseService,
   ) { }
 
   logout() {
     this.localStorage.removeItem("token");
     this.router.navigate(["/login"])
-
   }
 
   ngOnInit(): void {
-    // this.authService.getUsername().subscribe((username: String) => {
-    //   this.username = username;
-    // })
+      this.baseService.getProfileInfo().subscribe((currentProfile: Profile) => {
+        if(currentProfile != null) {
+          this.profile = currentProfile;
+        }
+        else console.log("this profile are null");
+      })
   }
 
 }

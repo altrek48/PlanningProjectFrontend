@@ -115,3 +115,18 @@ mat-cell {
   left: 22px;
   z-index: 10;
 }
+
+.purchase-button {
+  background-color: #0f586e; 
+  color: white;
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px;
+  font-size: 16px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.purchase-button:hover {
+  background-color: #0056b3; 
+}

@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Профиль</h1>
+<div mat-dialog-content>
+  <mat-form-field class="full-width-input">
+    <input matInput type="text"
+    placeholder="Никнейм" 
+    readonly = true
+    [(ngModel)]="userProfile.username" required>
+  </mat-form-field>
+  <mat-form-field class="full-width-input">
+    <input matInput type="text" 
+    placeholder="Почта" 
+    readonly = true
+    [(ngModel)]="userProfile.email" required>
+  </mat-form-field>
+  <mat-form-field class="full-width-input">
+    <input matInput type="number" 
+    placeholder="Id" 
+    readonly = true
+    [(ngModel)]="userProfile.id" required>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Отмена</button>
+</div>

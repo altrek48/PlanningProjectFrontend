@@ -84,4 +84,15 @@ export class BaseService {
       return this.http.get<Profile>(`api/base/user/getInfo`);
     }
 
+    getUsersProfileByGroupId(groupId: number): Observable<Profile[]> {
+      return this.http.get<Profile[]>(`api/base/user/getProfilesInGroup/${groupId}`);
+    }
+
+    getUsername(): Observable<string> {
+      return this.http.get(`api/base/user/getUsername`, { responseType: 'text' });
+    }
+
+    removeUserFromGroup(groupId: Number, userId: Number): Observable<Number> {
+      return this.http.delete<Number>(`api/base/group/${groupId}/removeUser/${userId}`);
+    }
 }

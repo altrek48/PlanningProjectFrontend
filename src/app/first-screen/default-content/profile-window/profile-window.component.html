@@ -1,24 +1,26 @@
-<h1 mat-dialog-title>Профиль</h1>
-<div mat-dialog-content>
+<h1 mat-dialog-title class="title">Профиль</h1>
+
+<div mat-dialog-content class="profile-container">
+  <div class="avatar-container">
+    <div class="avatar">👤</div>
+  </div>
+
   <mat-form-field class="full-width-input">
-    <input matInput type="text"
-    placeholder="Никнейм" 
-    readonly = true
-    [(ngModel)]="userProfile.username" required>
+    <mat-label>Никнейм</mat-label>
+    <input matInput type="text" readonly [(ngModel)]="userProfile.username">
   </mat-form-field>
+
   <mat-form-field class="full-width-input">
-    <input matInput type="text" 
-    placeholder="Почта" 
-    readonly = true
-    [(ngModel)]="userProfile.email" required>
+    <mat-label>Почта</mat-label>
+    <input matInput type="text" readonly [(ngModel)]="userProfile.email">
   </mat-form-field>
+
   <mat-form-field class="full-width-input">
-    <input matInput type="number" 
-    placeholder="Id" 
-    readonly = true
-    [(ngModel)]="userProfile.id" required>
+    <mat-label>ID</mat-label>
+    <input matInput type="number" readonly [(ngModel)]="userProfile.id">
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Отмена</button>
+
+<div mat-dialog-actions class="actions">
+  <button mat-button mat-dialog-close color="primary">Закрыть</button>
 </div>

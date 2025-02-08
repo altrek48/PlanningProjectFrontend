@@ -7,6 +7,8 @@ import { Router, Params } from '@angular/router';
 import { GroupService } from 'src/services/group-service';
 import { DialogAddUserComponent } from '../dialogs/dialog-add-user/dialog-add-user/dialog-add-user.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CheckUsersDialogComponent } from '../dialogs/dialog-add-user/dialog-add-user/check-users-dialog/check-users-dialog.component';
+import { Profile } from 'src/models/profile';
 
 @Component({
   selector: 'app-group-screen',
@@ -97,7 +99,7 @@ export class GroupScreenComponent implements OnInit {
           //console.log("username: " , result);
           if (result.length >= 3) {
             this.baseService.addUserToGroup(this.groupId, result).subscribe(() => {
-              
+
             });
           }
           else {
@@ -105,5 +107,33 @@ export class GroupScreenComponent implements OnInit {
           }
         });
   }
+
+  checkUsersInGroup() {
+    this.baseService.getUsersProfileByGroupId(this.groupId).subscribe((profiles: Profile[]) => {
+      if(this.isGroupCreator) {
+        this.baseService.getUsername().subscribe((username: String) => {
+          const dialogCheckUsers = this.dialog.open(CheckUsersDialogComponent, {
+            width: '600px',
+            data: {
+              userProfiles: profiles,
+              username,
+              groupId: this.groupId
+            }
+          });
+        })
+      }
+      else {
+        const dialogCheckUsers = this.dialog.open(CheckUsersDialogComponent, {
+          width: '600px',
+          data: {
+            userProfiles: profiles,
+            username: null,
+            groupId: this.groupId
+          }
+        });
+      }
+    });
+  }
+
 
 }

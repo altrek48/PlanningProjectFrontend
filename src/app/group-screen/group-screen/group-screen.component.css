@@ -64,7 +64,7 @@
 
 .add-button-user {
   position: absolute;
-  right: -50px;
+  right: 0vw;
   top: 50%;
   transform: translateY(-50%);
   font-size: 1rem;
@@ -75,8 +75,30 @@
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s;
+  white-space: nowrap;
 }
 
+
 .add-button-user:hover {
+  background-color: #303f9f;
+}
+
+.check-users {
+  position: absolute;
+  right: 18vw;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #fff;
+  background-color: #3f51b5;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.check-users:hover {
   background-color: #303f9f;
 }

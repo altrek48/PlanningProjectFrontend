@@ -4,6 +4,10 @@ import { Profile } from 'src/models/profile';
 // import { AuthService } from 'src/services/auth-service';
 import { BaseService } from 'src/services/base-service';
 import { LocalStorageService } from 'src/services/localStorage-service';
+import { ProfileWindowComponent } from './profile-window/profile-window.component';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-default-content',
@@ -18,6 +22,7 @@ export class DefaultContentComponent implements OnInit {
     private localStorage: LocalStorageService,
     private router: Router,
     private baseService: BaseService,
+    public dialog: MatDialog,
   ) { }
 
   logout() {
@@ -32,6 +37,13 @@ export class DefaultContentComponent implements OnInit {
         }
         else console.log("this profile are null");
       })
+  }
+
+  openProfile() {
+    const openProfileWindow = this.dialog.open(ProfileWindowComponent, {
+          width: '500px',
+          data: this.profile,
+        });
   }
 
 }

@@ -1,4 +1,5 @@
 export class ProductInPlane {
+  
   constructor() {
     this.id = null;
     this.name = "";

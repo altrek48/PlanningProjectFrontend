@@ -20,15 +20,15 @@ export class CheckUsersDialogComponent implements OnInit {
   groupId: number;
 
   constructor(public dialog: MatDialog, private baseService: BaseService, public dialogRef: MatDialogRef<CheckUsersDialogComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: {userProfiles: Profile[], username: String, groupId: number}) {
-        if(data.username != null) {
-          this.displayedColumns = ['index', 'username', 'actions'];
-        }
-        else this.displayedColumns = ['index', 'username'];
-        this.dataSource = new MatTableDataSource<Profile>(data.userProfiles ?? []);
-        this.username = data.username;
-        this.groupId = data.groupId;
-       }
+    @Inject(MAT_DIALOG_DATA) public data: {userProfiles: Profile[], username: String, groupId: number}) {
+      if(data.username != null) {
+        this.displayedColumns = ['index', 'username', 'actions'];
+      }
+      else this.displayedColumns = ['index', 'username'];
+      this.dataSource = new MatTableDataSource<Profile>(data.userProfiles ?? []);
+      this.username = data.username;
+      this.groupId = data.groupId;
+    }
 
   ngOnInit(): void {
   }
@@ -40,7 +40,6 @@ export class CheckUsersDialogComponent implements OnInit {
   removeUser(userId: number) {
     this.baseService.removeUserFromGroup(this.groupId, userId).subscribe((id: Number) => {
       this.dialogRef.close();
-
       this.baseService.getUsersProfileByGroupId(this.groupId).subscribe((updatedProfiles: Profile[]) => {
         this.dialog.open(CheckUsersDialogComponent, {
           width: '600px',
@@ -53,7 +52,4 @@ export class CheckUsersDialogComponent implements OnInit {
       });
     });
   }
-
-
-
 }

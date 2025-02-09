@@ -2,6 +2,7 @@ import { DecimalPipe } from "@angular/common";
 import { ProductInPlane } from "./productInTask";
 
 export class Task {
+  
   constructor() {
     this.id = null;
     this.name = "";
@@ -19,6 +20,5 @@ export class Task {
   products: ProductInPlane[] | null;
   completeness: number;
   linkedPurchasesIds: number[] | null;
-
 
 }

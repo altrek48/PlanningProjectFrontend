@@ -24,15 +24,12 @@ export class SingleCostComponent implements OnInit {
   isAddScreen: boolean = true;
   taskName: string = "";
   taskId: number | null = null;
-  //linkedTaskId: number | null = null;
-
 
   constructor(
     private dialog: MatDialog,
     private router: Router,
     private activateRoute: ActivatedRoute,
     private baseService: BaseService,
-
   ) {
     this.purchase = new Purchase();
     this.groupId = activateRoute.snapshot.params["groupId"];

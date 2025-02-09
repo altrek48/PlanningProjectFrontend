@@ -93,19 +93,18 @@ export class GroupScreenComponent implements OnInit {
 
   addUser() {
     const dialogAddUser = this.dialog.open(DialogAddUserComponent, {
-          width: '600px',
+      width: '600px',
+    });
+    dialogAddUser.afterClosed().subscribe((result: String) => {
+      //console.log("username: " , result);
+      if (result.length >= 3) {
+        this.baseService.addUserToGroup(this.groupId, result).subscribe(() => {
         });
-        dialogAddUser.afterClosed().subscribe((result: String) => {
-          //console.log("username: " , result);
-          if (result.length >= 3) {
-            this.baseService.addUserToGroup(this.groupId, result).subscribe(() => {
-
-            });
-          }
-          else {
-            console.log("Недостаточно символов в username");
-          }
-        });
+      }
+      else {
+        console.log("Недостаточно символов в username");
+      }
+    });
   }
 
   checkUsersInGroup() {

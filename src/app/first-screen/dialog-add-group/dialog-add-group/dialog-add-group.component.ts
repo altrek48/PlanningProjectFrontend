@@ -13,11 +13,10 @@ export class DialogAddGroupComponent implements OnInit {
 
   creatingGroup: Group;
 
-
   constructor(public dialogRef: MatDialogRef<DialogAddGroupComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Group) {
       this.creatingGroup = new Group();
-     }
+    }
 
   ngOnInit(): void {
   }

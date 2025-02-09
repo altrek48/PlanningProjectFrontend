@@ -1,4 +1,5 @@
 export class Product {
+
   constructor() {
     this.id = null;
     this.name = "";
@@ -12,6 +13,5 @@ export class Product {
   price: number | null;
   bayer: null | string;
   productInPlaneId: number | null;
-
 
 }

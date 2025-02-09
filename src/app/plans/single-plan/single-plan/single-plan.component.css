@@ -18,8 +18,6 @@ body {
   box-sizing: border-box;
 }
 
-
-
 .task-container {
   display: flex;
   flex-direction: column;
@@ -34,7 +32,6 @@ body {
   box-sizing: border-box;
   position: relative;
 }
-
 
 .task-name,
 .comment {
@@ -117,16 +114,16 @@ mat-cell {
 }
 
 .purchase-button {
-  background-color: #0f586e; 
+  background-color: #0f586e;
   color: white;
-  border: none; 
-  padding: 10px 20px; 
+  border: none;
+  padding: 10px 20px;
   border-radius: 5px;
-  font-size: 16px; 
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
 }
 
 .purchase-button:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
 }

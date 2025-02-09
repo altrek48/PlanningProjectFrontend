@@ -65,7 +65,6 @@ export class SinglePlanComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddProductInPlaneComponent, {
       width: '400px',
     });
-
     dialogRef.afterClosed().subscribe((result: ProductInPlane) => {
       if (result) {
         this.dataSource.data = [...this.dataSource.data, result];
@@ -112,7 +111,6 @@ export class SinglePlanComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogDeletePlanComponent, {
       width: '400px'
     });
-
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if(result === true && this.taskId != null) {
         this.baseService.deleteTask(this.groupId, this.taskId).subscribe((id: Number) => {
@@ -125,7 +123,7 @@ export class SinglePlanComponent implements OnInit {
 
   addLinkedPurchase() {
     this.router.navigate([`home/${this.groupId}/costs/add`], {
-        state: { taskName: this.task.name, taskId: this.taskId }
+      state: { taskName: this.task.name, taskId: this.taskId }
     });
   }
 

@@ -15,7 +15,6 @@ import { GroupService } from 'src/services/group-service';
 
 })
 
-
 export class FirstScreenComponent implements OnInit {
 
   groups: Group[] = [];
@@ -33,7 +32,6 @@ export class FirstScreenComponent implements OnInit {
   ngOnInit(): void {
     this.loadGroups();
     this.isNotFirstScreen = this.router.url !== '/home'
-
     this.router.events.subscribe(() => {
       this.isNotFirstScreen = this.router.url !== '/home';
     });

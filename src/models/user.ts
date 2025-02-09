@@ -1,4 +1,5 @@
 export class User {
+  
   constructor() {
     this.id = null;
     this.username = "";
@@ -8,4 +9,5 @@ export class User {
   id: number | null;
   username: string;
   password: string;
+
 }

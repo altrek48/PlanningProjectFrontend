@@ -14,10 +14,10 @@ export class ProfileWindowComponent implements OnInit {
   userProfile: Profile;
 
   constructor(public dialogRef: MatDialogRef<ProfileWindowComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: Profile) {
-          this.userProfile = data;
-         }
-
+    @Inject(MAT_DIALOG_DATA) public data: Profile) {
+      this.userProfile = data;
+    }
+    
   ngOnInit(): void {
   }
 

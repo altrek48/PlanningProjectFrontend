@@ -27,8 +27,8 @@ export class AllPlansComponent implements OnInit {
 
     ngOnInit(): void {
       this.subscription = this.activateRoute.parent?.parent?.params.subscribe((params: Params) => {
-          this.groupId = +params['groupId'];
-          this.loadTasks();
+        this.groupId = +params['groupId'];
+        this.loadTasks();
       });
     }
 

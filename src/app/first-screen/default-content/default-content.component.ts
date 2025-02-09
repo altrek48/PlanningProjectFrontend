@@ -31,19 +31,19 @@ export class DefaultContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.baseService.getProfileInfo().subscribe((currentProfile: Profile) => {
-        if(currentProfile != null) {
-          this.profile = currentProfile;
-        }
-        else console.log("this profile are null");
-      })
+    this.baseService.getProfileInfo().subscribe((currentProfile: Profile) => {
+      if(currentProfile != null) {
+        this.profile = currentProfile;
+      }
+      else console.log("this profile are null");
+    })
   }
 
   openProfile() {
     const openProfileWindow = this.dialog.open(ProfileWindowComponent, {
-          width: '500px',
-          data: this.profile,
-        });
+      width: '500px',
+      data: this.profile,
+    });
   }
 
 }

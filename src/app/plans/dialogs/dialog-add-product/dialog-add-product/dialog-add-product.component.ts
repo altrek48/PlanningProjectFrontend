@@ -13,14 +13,14 @@ export class DialogAddProductInPlaneComponent implements OnInit {
 
   creatingProductInPlane: ProductInPlane;
 
-
   constructor(public dialogRef: MatDialogRef<DialogAddProductInPlaneComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ProductInPlane) {
       this.creatingProductInPlane = new ProductInPlane();
-     }
+    }
 
   ngOnInit(): void {
   }
+  
   onNoClick(): void {
     this.dialogRef.close();
   }

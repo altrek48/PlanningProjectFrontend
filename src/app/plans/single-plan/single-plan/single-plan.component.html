@@ -1,26 +1,13 @@
 <div class="main-content">
   <div class="task-container">
+
     <div class="task-name">
-      <input
-        type="text"
-        [(ngModel)]="task.name"
-        placeholder="Введите название плана..."
-        class="task-input"
-      />
-      <button
-          mat-raised-button color="primary"
-          class="cancel-button"
-          (click)="backToPlans()"
-          >Отмена
-        </button>
+      <input type="text" [(ngModel)]="task.name" placeholder="Введите название плана..." class="task-input"/>
+      <button mat-raised-button color="primary" class="cancel-button" (click)="backToPlans()">Отмена</button>
     </div>
 
     <div class="comment">
-      <textarea
-        [(ngModel)]="task.comment"
-        placeholder="Введите описание плана..."
-        class="task-input task-textarea"
-      ></textarea>
+      <textarea [(ngModel)]="task.comment" placeholder="Введите описание плана..." class="task-input task-textarea"></textarea>
     </div>
 
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 full-width-table">
@@ -39,9 +26,7 @@
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let product">
           <ng-container *ngIf="product.linkedProductId">
-            <button class="purchase-button" (click)="navigateToLinkedPurchase(product.linkedProductId)">
-              Покупка
-            </button>
+            <button class="purchase-button" (click)="navigateToLinkedPurchase(product.linkedProductId)">Покупка</button>
           </ng-container>
         </td>
       </ng-container>
@@ -58,45 +43,11 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <button
-      mat-raised-button color="primary"
-      class="add-product"
-      (click)="addProduct()"
-    >
-      +
-    </button>
-
-    <button
-      *ngIf="!isAddScreen"
-      mat-raised-button color="primary"
-      class="save-plan"
-      (click)="changePlan()"
-    >
-      Сохранить
-    </button>
-    <button
-      *ngIf="!isAddScreen"
-      mat-raised-button color="primary"
-      class="purchase-plan"
-      (click)="addLinkedPurchase()"
-    >
-      Добавить покупку
-    </button>
-    <button
-      *ngIf="!isAddScreen"
-      mat-raised-button color="primary"
-      class="delete-plan"
-      (click)="deletePlan()"
-    >
-      Удалить
-    </button>
-    <button
-      *ngIf="isAddScreen"
-      mat-raised-button color="primary"
-      class="save-plan"
-      (click)="savePlan()"
-    >
-      Создать
-    </button>
+    <button mat-raised-button color="primary" class="add-product" (click)="addProduct()">+</button>
+    <button *ngIf="!isAddScreen" mat-raised-button color="primary" class="save-plan" (click)="changePlan()">Сохранить</button>
+    <button *ngIf="!isAddScreen" mat-raised-button color="primary" class="purchase-plan" (click)="addLinkedPurchase()">Добавить покупку</button>
+    <button *ngIf="!isAddScreen" mat-raised-button color="primary" class="delete-plan" (click)="deletePlan()">Удалить</button>
+    <button *ngIf="isAddScreen" mat-raised-button color="primary" class="save-plan" (click)="savePlan()">Создать</button>
+    
   </div>
 </div>

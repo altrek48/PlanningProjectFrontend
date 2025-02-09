@@ -6,11 +6,7 @@
 <router-outlet></router-outlet>
 <div class="main-content">
   <div class="add-plan_purchase">
-    <button class="add-button"
-    *ngIf="isPlanScreen"
-    (click)="createNewPlan()"
-    >+
-    </button>
+    <button class="add-button" *ngIf="isPlanScreen" (click)="createNewPlan()">+</button>
     <button class="add-button"*ngIf="!isPlanScreen" (click)="createNewPurchase()">+</button>
   </div>
   <div class="buttons">

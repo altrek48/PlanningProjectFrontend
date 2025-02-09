@@ -13,7 +13,6 @@ export class GroupService {
 
   private groups: Group[] = [];
 
-
   constructor(private baseService: BaseService, private router: Router) { }
 
   loadGroups(): Observable<Group[]> {

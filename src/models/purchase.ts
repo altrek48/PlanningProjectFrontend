@@ -1,6 +1,7 @@
 import { Product } from "./product";
 
 export class Purchase {
+
   constructor() {
     this.id = null;
     this.storeName = "";
@@ -19,6 +20,5 @@ export class Purchase {
   products: Product[] | null;
   userPayer: string;
   taskId: number | null;
-
 
 }

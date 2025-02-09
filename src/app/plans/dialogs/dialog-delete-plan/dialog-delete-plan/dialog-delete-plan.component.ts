@@ -7,13 +7,13 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogDeletePlanComponent implements OnInit {
 
-    constructor(public dialogRef: MatDialogRef<boolean>) {}
-      
-  
-    ngOnInit(): void {
-    }
-    onNoClick(): void {
-      this.dialogRef.close("false");
-    }
+  constructor(public dialogRef: MatDialogRef<boolean>) {}
+
+  ngOnInit(): void {
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close("false");
+  }
 
 }

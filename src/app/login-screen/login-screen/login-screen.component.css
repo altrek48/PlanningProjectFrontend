@@ -1,7 +1,5 @@
-/* Demo Background */
 body{background:url(/images/bg/bg-6.png)}
 
-/* Form Style */
 .form-horizontal{
  background: #fff;
  padding-bottom: 40px;
@@ -132,5 +130,5 @@ body{background:url(/images/bg/bg-6.png)}
 }
 
 .form-group.text-center button {
-  margin-left: 10px; 
+  margin-left: 10px;
 }

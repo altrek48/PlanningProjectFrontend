@@ -9,21 +9,11 @@
   <div class="sidebar">
     <h1>Группы</h1>
     <div class="menu">
-      <div *ngFor="let group of groups" class="group-item" (click)="selectGroup(group)">
-        {{ group.name }}
-      </div>
+      <div *ngFor="let group of groups" class="group-item" (click)="selectGroup(group)">{{group.name}}</div>
     </div>
     <div class="add-group">
-      <button
-        *ngIf="!isNotFirstScreen"
-        mat-raised-button color="primary"
-        (click)="createNewGroup()"
-        >+
-      </button>
-      <button
-        *ngIf="isNotFirstScreen"
-        mat-raised-button color="primary"
-        (click)="backToHome()"
+      <button *ngIf="!isNotFirstScreen" mat-raised-button color="primary" (click)="createNewGroup()">+</button>
+      <button *ngIf="isNotFirstScreen" mat-raised-button color="primary" (click)="backToHome()"
         [ngClass]="{'home-group': isNotFirstScreen}"
         ><img src="/assets/images/home-icon.png"/>
       </button>

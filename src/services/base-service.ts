@@ -95,4 +95,12 @@ export class BaseService {
     removeUserFromGroup(groupId: Number, userId: Number): Observable<Number> {
       return this.http.delete<Number>(`api/base/group/${groupId}/removeUser/${userId}`);
     }
+
+    uploadNewAvatar(avatar: FormData): Observable<String> {
+      return this.http.post<String>(`api/base/avatar/upload`, avatar, {responseType: 'text' as 'json'});
+    }
+
+    updateEmail(email: String): Observable<String> {
+      return this.http.put<String>(`api/base/user/editEmail`, email, {responseType: 'text' as 'json'});
+    }
 }

@@ -22,9 +22,9 @@ export class CheckUsersDialogComponent implements OnInit {
   constructor(public dialog: MatDialog, private baseService: BaseService, public dialogRef: MatDialogRef<CheckUsersDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {userProfiles: Profile[], username: String, groupId: number}) {
       if(data.username != null) {
-        this.displayedColumns = ['index', 'username', 'actions'];
+        this.displayedColumns = ['index', 'username', 'avatar', 'actions'];
       }
-      else this.displayedColumns = ['index', 'username'];
+      else this.displayedColumns = ['index', 'username', 'avatar'];
       this.dataSource = new MatTableDataSource<Profile>(data.userProfiles ?? []);
       this.username = data.username;
       this.groupId = data.groupId;

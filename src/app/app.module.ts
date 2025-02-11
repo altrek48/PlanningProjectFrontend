@@ -35,6 +35,8 @@ import { DialogDeletePlanComponent } from './plans/dialogs/dialog-delete-plan/di
 import { DialogAddUserComponent } from './group-screen/dialogs/dialog-add-user/dialog-add-user/dialog-add-user.component';
 import { ProfileWindowComponent } from './first-screen/default-content/profile-window/profile-window.component';
 import { CheckUsersDialogComponent } from './group-screen/dialogs/dialog-add-user/dialog-add-user/check-users-dialog/check-users-dialog.component';
+import { AvatarEditDialogComponent } from './first-screen/default-content/avatar-edit-dialog/avatar-edit-dialog.component';
+import { EditEmailDialogComponent } from './first-screen/default-content/profile-window/edit-email-dialog/edit-email-dialog.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { CheckUsersDialogComponent } from './group-screen/dialogs/dialog-add-use
     DialogAddUserComponent,
     ProfileWindowComponent,
     CheckUsersDialogComponent,
+    AvatarEditDialogComponent,
+    EditEmailDialogComponent,
   ],
   imports: [
     BrowserModule,

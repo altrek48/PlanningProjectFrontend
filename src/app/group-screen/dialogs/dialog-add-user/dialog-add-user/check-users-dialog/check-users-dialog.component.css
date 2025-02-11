@@ -42,3 +42,14 @@ table {
   justify-content: flex-end;
 }
 
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ddd;
+  cursor: pointer;
+  display: inline-block;
+}

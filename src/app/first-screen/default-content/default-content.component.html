@@ -1,5 +1,5 @@
 <div class="top-right">
-  <div class="avatar" (click)="openProfile()">👤</div>
+  <div class="avatar" (click)="openProfile()" [ngStyle]="{'background-image': this.profile?.avatarUrl ? 'url(' + this.profile?.avatarUrl + ')' : 'url(assets/images/avatar.png)'}"></div>
   <div class="user-name" (click)="openProfile()">{{profile?.username || ''}}</div>
   <button (click)="logout()">logout</button>
 </div>
